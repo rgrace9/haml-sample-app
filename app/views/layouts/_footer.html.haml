@@ -7,9 +7,11 @@
     %nav
         %ul{:class => 'nav navbar-nav navbar-right'}
             %li
-                %a{:href=> '#'} About
+                =link_to 'About', about_path
+
             
             %li
-                %a{:href=> '#'} Contact
+                =link_to 'Contact', contact_path
+
             %li
                 %a{:href=> 'https://news.railstutorial.org/'} Ruby News
