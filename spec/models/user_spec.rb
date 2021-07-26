@@ -44,10 +44,16 @@ RSpec.describe User, type: :model do
 
   end
 
-  it "show have a unique email address" do
+  it "should have a unique email address" do
     duplicate_user = @user.dup
-    duplicate_user.email = @user.email.upcase
     @user.save
     expect(duplicate_user).to_not be_valid
+  end
+
+  it "should have an email address saved as lower case" do
+    mixed_case_email = "Foo@ExAMPle.CoM"
+    @user.email = mixed_case_email
+    @user.save
+    expect(mixed_case_email.downcase).to eq(@user.reload.email)
   end
 end
