@@ -71,4 +71,6 @@ RSpec.describe User, type: :model do
     @user.password = @user.password_confirmation = "A" * 5
     expect(@user).to_not be_valid
   end
+
+
 end
