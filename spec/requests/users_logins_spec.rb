@@ -1,10 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe "UsersLogins", type: :request do
+
+  def setup
+    @user = users(:michael)
+  end
+
   describe "GET /users_logins" do
-    it "works! (now write some real specs)" do
+    it "logins user with valid information" do
       get login_path
-      expect(response).to have_http_status(200)
+      post login_path, params: { session: {email: setup(@user.email), password: 'password'}}
     end
 
     it "logins with invalid information" do

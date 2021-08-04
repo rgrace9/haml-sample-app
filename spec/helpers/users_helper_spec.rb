@@ -12,4 +12,9 @@ require 'rails_helper'
 # end
 RSpec.describe UsersHelper, type: :helper do
   pending "add some examples to (or delete) #{__FILE__}"
+
+  # Returns true if a test user is logged in.
+  def is_logged_in?
+    !session[:user_id].nil?
+  end
 end
